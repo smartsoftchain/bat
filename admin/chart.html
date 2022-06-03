@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	{include head.tpl}
+	<link rel="stylesheet" href="css/lightbox.css">
+<style type="text/css">
+<!--
+.imgs{
+	width:100px;
+}
+.num{
+	margin-left: 5px;
+	font-size:14px;
+	font-weight:bold;
+}
+.num a{
+	margin-left: 5px;
+	font-size:12px;
+	font-weight:nomal;
+}
+.next{
+	margin-left: 5px;
+}
+.radios{
+	margin-left: 0px; 
+}
+//-->
+</style>
+</head>
+
+<body>
+		<!-- start: Header -->
+	<div class="navbar">
+		<div class="navbar-inner">
+		{include header.tpl}
+		</div>
+	</div>
+	<div id="under-header"></div>
+	<!-- start: Header -->
+	
+		<div class="container-fluid">
+		<div class="row-fluid">
+				
+			<!-- start: Main Menu -->
+			<div class="span2 main-menu-span">
+				{include menu.tpl}
+			</div><!--/span-->
+			<!-- end: Main Menu -->
+			
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+			
+			<div id="content" class="span10">
+			<!-- start: Content -->
+			
+			<div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="#">Home</a> <span class="divider">/</span>
+					</li>
+					<li>
+						<a href="#">{val title}</a>
+					</li>
+				</ul>
+			</div>
+			
+			
+<!--{each cnts}-->
+			<div class="row-fluid sortable">
+				<div class="box span12">
+					<div class="box-header">
+						<h2><i class="icon-align-justify"></i><span class="break"></span>{val cnts/name}</h2>
+						<div class="box-icon">
+						</div>
+					</div>
+					<div class="box-content">
+						<div id="sincosz{val cnts/key}"  class="center" style="height:300px" ></div>
+					</div>
+				</div><!--/span-->
+			</div>
+<!--{/each}-->
+			
+			<hr>
+			
+			
+			
+       
+					<!-- end: Content -->
+			</div><!--/#content.span10-->
+				</div><!--/fluid-row-->
+				
+		
+		<div class="clearfix"></div>
+		<hr>
+		
+		<footer>
+			{include footer.tpl}
+		</footer>
+				
+	</div><!--/.fluid-container-->
+
+	<!-- start: JavaScript-->
+	{include script.tpl}
+<script type="text/javascript">
+		function showTooltip(x, y, contents) {
+			$('<div id="tooltip">' + contents + '</div>').css( {
+				position: 'absolute',
+				display: 'none',
+				top: y + 5,
+				left: x + 5,
+				border: '1px solid #fdd',
+				padding: '2px',
+				'background-color': '#dfeffc',
+				opacity: 0.80
+			}).appendTo("body").fadeIn(200);
+		}
+$(document).ready(function(){
+<!--{each cnts}-->
+	if($("#sincosz{val cnts/key}").length){
+		{val cnts/js_arrays}
+		<!--{each cnts/sin}-->
+		sin{val cnts/key}.push({rval cnts/sin/val});
+		<!--{/each}-->
+		var plot = $.plot($("#sincosz{val cnts/key}"),
+			   [ {val cnts/lavels} ], {
+				   series: {
+					   lines: { show: true,lineWidth: 2},
+					   points: { show: true },
+					   //tickOptions: {formatString: '%s'},
+					   shadowSize: 2
+				   },
+				   grid: { hoverable: true, clickable: true, tickColor: "#dddddd",borderWidth: 0 },
+				   yaxis: { label:'売上',min: {val cnts/min}, max: {val cnts/max} },
+				   xaxis: {tickFormatter: function(val, axis) { 
+					return val + "日";
+				}},
+				   colors: ['{val cnts/colors}']
+				 });
+
+		var previousPoint = null;
+		$("#sincosz{val cnts/key}").bind("plothover", function (event, pos, item) {
+			$("#x").text(pos.x.toFixed(2));
+			$("#y").text(pos.y.toFixed(2));
+				if (item) {
+					if (previousPoint != item.dataIndex) {
+						previousPoint = item.dataIndex;
+						$("#tooltip").remove();
+						var x = item.datapoint[0].toFixed(2),
+							y = item.datapoint[1].toFixed(2);
+						showTooltip(item.pageX, item.pageY,item.series.label + " of " + parseInt(x) + "日 = " + parseInt(y));
+					}
+				}else {
+					$("#tooltip{val cnts/key}").remove();
+					previousPoint = null;
+				}
+		});
+	}
+<!--{/each}-->
+});
+</script>
+</body>
+</html>

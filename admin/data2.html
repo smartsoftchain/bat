@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	{include head.tpl}
+	<link rel="stylesheet" href="css/lightbox.css">
+<style type="text/css">
+<!--
+.imgs{
+	width:100px;
+}
+.num{
+	margin-left: 5px;
+	font-size:14px;
+	font-weight:bold;
+}
+.num a{
+	margin-left: 5px;
+	font-size:12px;
+	font-weight:nomal;
+}
+.next{
+	margin-left: 5px;
+}
+.radios{
+	margin-left: 0px; 
+}
+.center{
+	word-wrap: break-word;
+    word-break: break-all;
+}
+.pagetop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+}
+.pagetop a {
+    display: block;
+    background-color: #ccc;
+    text-align: center;
+    color: #222;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 5px 10px;
+	filter:alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+.pagetop a:hover {
+    display: block;
+    background-color: #b2d1fb;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    padding:5px 10px;
+	filter:alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+//-->
+</style>
+</head>
+
+<body>
+		<!-- start: Header -->
+	<div class="navbar">
+		<div class="navbar-inner">
+		{include header.tpl}
+		</div>
+	</div>
+	<div id="under-header"></div>
+	<!-- start: Header -->
+	
+		<div class="container-fluid">
+		<div class="row-fluid">
+				
+			<!-- start: Main Menu -->
+			<div class="span2 main-menu-span">
+				{include menu.tpl}
+			</div><!--/span-->
+			<!-- end: Main Menu -->
+			
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+			
+			<div id="content" class="span10">
+			<!-- start: Content -->
+			
+			<div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="#">Home</a> <span class="divider">/</span>
+					</li>
+					<li>
+						<a href="#">{val title}</a>
+					</li>
+				</ul>
+			</div>
+			<!--{def message}-->
+			<div class="row-fluid sortable">	
+				<div class="box span12">
+					<div class="box-content alerts">
+						<div class="alert alert-info">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<strong>{val message}</strong>
+						</div>
+					</div>
+					
+				</div><!--/span-->
+			</div><!--/row-->
+			<!--{/def}-->
+
+			<div class="row-fluid sortable">
+				<div class="box span12">
+					<div class="box-header">
+						<h2><i class="icon-align-justify"></i><span class="break"></span>登録データ一覧</h2>
+						<div class="box-icon">
+						</div>
+					</div>
+					<div class="box-content">
+						<div>
+							<form action="./?act=data2" method="post" name="form1" id="form1" style="width:50%;float:left;">
+							<input type="hidden" name="mode" value="search">
+							<input type="hidden" name="page" id="page" value="{val page}">
+							<input type="hidden" name="order" id="order" value="{val order}">
+							<input type="hidden" name="desc" id="desc" value="{val desc}">
+							<input type="hidden" name="csv" id="csv" value="">
+							期間：<input type="text" name="d1" value="{val d1}" id="datepicker">～
+							<input type="text" name="d2" value="{val d2}" id="datepicker2">
+							<p>
+							<button type="button" id="search" class="btn btn-primary"> 更　新 </button>&nbsp;&nbsp;
+							<!--button type="button" id="csvBtn" class="btn btn-primary"> CSVダウンロード </button-->
+							</p>
+							</form>
+							
+							<div style-"clear:both;"></div>
+						</div>
+					<!--p style="text-align:left;">{val cnt}件HITしました。</p-->
+						<table class="table table-bordered">
+							<thead>
+								  <tr>
+								  	<th>日付</th>
+								  <!--{each titles}-->
+								  <th align="center">{val titles/val}</th>
+								  <!--{/each}-->
+								  <th align="center">合計</th>
+								  <th align="center">前日(+-)</th>
+								  </tr>
+								</thead>   
+							    <tbody>
+							    	<!--{each list}-->
+							  		<tr>
+							  			<td align="left">{val list/hi}</td>
+							  			<td align="right" style="text-align: right;">{val list/d0}</td>
+							  			<td align="right" style="text-align: right;">{val list/d1}</td>
+							  			<td align="right" style="text-align: right;">{val list/d2}</td>
+							  			<td align="right" style="text-align: right;">{val list/d3}</td>
+							  			<td align="right" style="text-align: right;">{val list/d4}</td>
+							  			<td align="right" style="text-align: right;">{val list/d5}</td>
+							  			<td align="right" style="text-align: right;">{val list/d6}</td>
+							  			<td align="right" style="text-align: right;">{val list/total}</td>
+							  			<td align="right" style="text-align: right;">{val list/sa}</td>
+							  		</tr>
+							  		<!--{/each}-->
+							  	</tbody>
+							  	</table>
+					</div>
+				</div><!--/span-->
+			</div>
+			
+			<div class="row-fluid">
+				<div class="box span12" id="pages">
+				{val pagingstring}
+				</div>
+			</div>
+			
+			<hr>
+       
+					<!-- end: Content -->
+			</div><!--/#content.span10-->
+				</div><!--/fluid-row-->
+				
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Settings</h3>
+			</div>
+			<div class="modal-body">
+				<p>Here settings can be configured...</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save changes</a>
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+		<hr>
+		
+		<footer>
+			{include footer.tpl}
+		</footer>
+				
+	</div><!--/.fluid-container-->
+<p class="pagetop"><a href="#wrap">▲</a></p>
+	<!-- start: JavaScript-->
+	{include script.tpl}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.dels').click(function() {
+    	var id = $(this).attr("rel");
+    	if(confirm("このデータを削除します。よろしいですか？")){
+    		location.href="./?act=data&mode=del&id="+id;
+    	}else{
+    		return false;
+    	}
+    
+    });
+    
+	    $("#csvBtn").click(function(){
+	    	$("#csv").val("csv");
+	    	$("#form1").submit();
+	    });
+	    $("#search").click(function(){
+	    	$("#page").val("1");
+	    	$("#csv").val("");
+	    	$("#form1").submit();
+	    });
+	    $(".pageBtn").click(function(){
+	    	var id = $(this).attr("rel");
+	    	if(id){
+	    		$("#page").val(id);
+	    		$("#form1").submit();
+	    	}
+	    	
+	    });
+	    $(".no").click(function(){
+	    	var rel = $(this).attr("rel");
+	    	if(rel == "desc"){
+	    		$("#order").val("no");
+	    		$("#desc").val("desc");
+	    	}else{
+	    		$("#order").val("no");
+	    		$("#desc").val("asc");
+	    	}
+	    		$("#form1").submit();
+	    });
+	    $(".dates").click(function(){
+	    	var rel = $(this).attr("rel");
+	    	if(rel == "desc"){
+	    		$("#order").val("date");
+	    		$("#desc").val("desc");
+	    	}else{
+	    		$("#order").val("date");
+	    		$("#desc").val("asc");
+	    	}
+	    		$("#form1").submit();
+	    });
+		  var pagetop = $('.pagetop');
+		    $(window).scroll(function () {
+		       if ($(this).scrollTop() > 100) {
+		            pagetop.fadeIn();
+		       } else {
+		            pagetop.fadeOut();
+		            }
+		       });
+		       pagetop.click(function () {
+		           $('body, html').animate({ scrollTop: 0 }, 500);
+		              return false;
+		   });
+});
+</script>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+ var $j = jQuery.noConflict();
+$j(function(){
+    $j("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});
+    $j("#datepicker2").datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+</body>
+</html>

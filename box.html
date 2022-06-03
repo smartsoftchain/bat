@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>打席管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- styles -->
+	<link href="css/styles.css" rel="stylesheet">
+	<link href="css/forms.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+  	<div class="header">
+  		<div class="container">
+  			<div class="row">
+        <div class="hdInner">
+  				<div class="col-md-4">
+            <div class="navbar navbar-inverse" role="banner">
+              <nav class="navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ゴルフスクール〇〇〇〇〇〇様<b class="caret"></b></a>
+                    <ul class="dropdown-menu animated fadeInUp">
+                      <li><a href="login.html">ログアウト</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+  				</div>
+  				<div class="col-md-3 clockArea">
+  					<div class="row">
+  						<div class="col-lg-12 txt-r">
+  							<div class="input-group form">
+  								<span id="clock">5/22（火曜日） 10:20</span>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+          <div class="fl-r col-md-3 clockArea">
+            <div class="row">
+              <div class="col-lg-12 txt-r">
+                <ul class="bntArea">
+                  <li class="resetBtn">
+                    <input type="reset" value="クリア">
+                  </li>
+                  <li class="linkBtn">
+                    <a href="index.html">打席</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+  			</div>
+  		</div>
+  	</div>
+
+  	<div class="page-content">
+  		<div class="row mh">
+  			<div class="col-md-10">
+
+  				<div class="row">
+  					<div class="col-md-12">
+  						<div class="content-box-large">
+  							<form class="form-horizontal" role="form" onReset="return check()">
+  								<div class="panel-body timeBox">
+                    <div class="form-group">
+                      <div class="col-sm-10 ma">
+                      <table class="orderList">
+                        <tr>
+                          <th>貢</th>
+                          <th>並び</th>
+                          <th colspan="2">打席名 内容</th>
+                        </tr>
+                        <tr>
+                          <td><div class="order">1</div></td>
+                          <td><div class="order">1</div></td>
+                          <td><div class="time">1</div></td>
+                          <td><div class="time">60</div></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">10:20</div></td>
+                        </tr>
+                        <tr class="bb">
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">&nbsp;</div></td>
+                          <td><div class="time">&nbsp;</div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="order">1</div></td>
+                          <td><div class="order">2</div></td>
+                          <td><div class="time">2</div></td>
+                          <td><div class="time">90</div></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">10:20</div></td>
+                        </tr>
+                        <tr class="bb">
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">&nbsp;</div></td>
+                          <td><div class="time">&nbsp;</div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="order">1</div></td>
+                          <td><div class="order">3</div></td>
+                          <td><div class="time">3</div></td>
+                          <td><div class="time">90</div></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">10:20</div></td>
+                        </tr>
+                        <tr class="bb">
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">&nbsp;</div></td>
+                          <td><div class="time">&nbsp;</div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="order">1</div></td>
+                          <td><div class="order">4</div></td>
+                          <td><div class="time">4</div></td>
+                          <td><div class="time">60</div></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">10:20</div></td>
+                        </tr>
+                        <tr class="bb">
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">120</div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="order">1</div></td>
+                          <td><div class="order">5</div></td>
+                          <td><div class="time">5L</div></td>
+                          <td><div class="time">90</div></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">10:20</div></td>
+                        </tr>
+                        <tr class="bb">
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">60</div></td>
+                        </tr>
+                        <tr>
+                          <td><div class="order">1</div></td>
+                          <td><div class="order">6</div></td>
+                          <td><div class="time">6L</div></td>
+                          <td><div class="time">90</div></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">10:20</div></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><div class="time">10:20</div></td>
+                          <td><div class="time">30</div></td>
+                        </tr>
+                      </table>
+                      </div>
+                    </div>
+
+  									<div class="form-group mt30">
+  										<div class="submitBtn">
+  											<button type="submit" class="btn btn-primary btnDefault">登録</button>
+  										</div>
+  									</div>
+  								</form>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+
+  		<footer>
+  			<div class="container">
+
+  				<div class="copy text-center">
+  					&copy; 2018 Solutionsoft
+  				</div>
+
+  			</div>
+  		</footer>
+
+  		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  		<script src="https://code.jquery.com/jquery.js"></script>
+  		<!-- Include all compiled plugins (below), or include individual files as needed -->
+  		<script src="bootstrap/js/bootstrap.min.js"></script>
+  		<script src="js/custom.js"></script>
+  		<script> 
+  			function check(){
+	if(window.confirm('リセットしてもよろしいですか？')){ // 確認ダイアログを表示
+		return true; // 「OK」時はリセットを実行
+	}
+	else{ // 「キャンセル」時の処理
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+		return false; // リセットを中止
+	}
+}
+</script>
+</body>
+</html>

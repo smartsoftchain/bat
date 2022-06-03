@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>トップページ</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- styles -->
+	<link href="css/styles.css" rel="stylesheet">
+	<link href="css/forms.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+  	<div class="header">
+  		<div class="container">
+  			<div class="row">
+        <div class="hdInner">
+  				<div class="col-md-4">
+            <div class="navbar navbar-inverse" role="banner">
+              <nav class="navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ゴルフスクール〇〇〇〇〇〇様<b class="caret"></b></a>
+                    <ul class="dropdown-menu animated fadeInUp">
+                      <li><a href="login.html">ログアウト</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+  				</div>
+  				<div class="col-md-3 clockArea">
+  					<div class="row">
+  						<div class="col-lg-12 txt-r">
+  							<div class="input-group form">
+  								<span id="clock">5/22（火曜日） 10:20</span>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+          <div class="fl-r col-md-3 clockArea">
+            <div class="row">
+              <div class="col-lg-12 txt-r">
+                <ul class="bntArea">
+                  <li class="resetBtn">
+                    <input type="reset" value="クリア">
+                  </li>
+                  <li class="linkBtn">
+                    <a href="box.html">打席</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+  			</div>
+  		</div>
+  	</div>
+
+  	<div class="page-content">
+  		<div class="row mh">
+  			<div class="col-md-10">
+
+  				<div class="row">
+  					<div class="col-md-12">
+  						<div class="content-box-large">
+  							<form class="form-horizontal" role="form" onReset="return check()">
+  								<div class="panel-body timeBox">
+
+  									<div class="form-group">
+  										<label for="inputEmail3" class="col-sm-2 control-label">打席</label>
+  										<div class="col-sm-10">
+                        <ul class="batBox">
+                          <li>
+                            <div class="num">1</div>
+                            <div class="time">9:15</div>
+                          </li>
+                          <li>
+                            <div class="num">2</div>
+                            <div class="time">9:15</div>
+                          </li>
+                          <li>
+                            <div class="num off">3</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                          <li>
+                            <div class="num">4</div>
+                            <div class="time">9:15</div>
+                          </li>
+                          <li>
+                            <div class="num off">5L</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                          <li>
+                            <div class="num">6L</div>
+                            <div class="time">9:15</div>
+                          </li>
+                          <li>
+                            <div class="num">7</div>
+                            <div class="time">9:15</div>
+                          </li>
+                          <li>
+                            <div class="num">8</div>
+                            <div class="time">9:15</div>
+                          </li>
+                          <li>
+                            <div class="num off">9</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                          <li>
+                            <div class="num off">10</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                          <li>
+                            <div class="num off">11</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                          <li>
+                            <div class="num off">12</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+  										</div>
+  									</div>
+  									<div class="form-group">
+  										<label for="inputEmail3" class="col-sm-2 control-label">時間</label>
+  										<div class="col-sm-10">
+  											<div class="sample">
+  												<input type="radio" name="s4" id="time_select1" value="1">
+  												<label for="time_select1">30分</label>
+  												<input type="radio" name="s4" id="time_select2" value="2">
+  												<label for="time_select2">60分</label>
+  												<input type="radio" name="s4" id="time_select3" value="3">
+  												<label for="time_select3">90分</label>
+  												<input type="radio" name="s4" id="time_select4" value="4">
+  												<label for="time_select4">120分</label>
+  												<input type="radio" name="s4" id="time_select5" value="5">
+  												<label for="time_select5">延長30分</label>
+  											</div>
+  										</div>
+  									</div>
+  									<div class="form-group">
+  										<label for="inputEmail3" class="col-sm-2 control-label">IN-OUT</label>
+  										<div class="col-sm-10">
+  											<div class="sample">
+  												<input type="radio" name="s5" id="in_select1" value="1">
+  												<label for="in_select1">IN</label>
+  												<input type="radio" name="s5" id="in_select2" value="2">
+  												<label for="in_select2">OUT</label>
+  											</div>
+  										</div>
+  									</div>
+                    <div class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label"></label>
+                      <div class="col-sm-10">
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num">1</div>
+                            <div class="hour">60</div>
+                            <div class="time">10:20</div>
+                            <div class="time">11:20</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num">2</div>
+                            <div class="hour">90</div>
+                            <div class="time">10:00</div>
+                            <div class="time">10:30</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num off">3</div>
+                            <div class="hour">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num">4</div>
+                            <div class="hour">60</div>
+                            <div class="time">10:00</div>
+                            <div class="time">11:00</div>
+                            <div class="time">11:30</div>
+                            <div class="time">30</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num off">5L</div>
+                            <div class="hour">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num">6L</div>
+                            <div class="hour">60</div>
+                            <div class="time">9:15</div>
+                            <div class="time">10:15</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num">7</div>
+                            <div class="hour">60</div>
+                            <div class="time">9:30</div>
+                            <div class="time">10:30</div>
+                            <div class="time">11:30</div>
+                            <div class="time">60</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num">8</div>
+                            <div class="hour">60</div>
+                            <div class="time">11:00</div>
+                            <div class="time">12:00</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num off">9</div>
+                            <div class="hour">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num off">10</div>
+                            <div class="hour">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num off">11</div>
+                            <div class="hour">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                        <ul class="timeCol">
+                          <li>
+                            <div class="num off">12</div>
+                            <div class="hour">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                            <div class="time">&nbsp;</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+
+
+                    <div id="myModal2" class="modal fade">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">&nbsp;</h4>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="form-group">
+                              <label for="" class="col-sm-2 control-label">予約日</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" placeholder="" value="5/21">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="" class="col-sm-2 control-label">お名前</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" placeholder="" value="大阪太郎">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="" class="col-sm-2 control-label">時間(自)</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" placeholder="" value="11:00">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="" class="col-sm-2 control-label">時間(至)</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" placeholder="" value="18:00">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">メモ</label>
+                              <div class="col-sm-10">
+                                <textarea class="form-control" placeholder="" rows="3" value="">電話受付</textarea>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <div class="form-group">
+                              <div class="submitBtn">
+                                <button type="submit" class="btn btn-primary btnDefault">予約する</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  								</form>
+  							</div>
+  						</div>
+  					</div>
+
+  					<div>
+  						<div class="col-md-12">
+  							<div class="content-box-large">
+  								<div class="panel-heading">
+                     <div class="panel-options pr0 resetBtn">
+                      <div class="addBtn"><a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></div>
+                    </div>
+  								</div>
+  								<div class="panel-body">
+  									<table class="table">
+  										<thead>
+  											<tr>
+  												<th>予約日</th>
+  												<th>お名前</th>
+  												<th>時間(自)</th>
+  												<th>時間(至)</th>
+  												<th>メモ</th>
+  												<th></th>
+  											</tr>
+  										</thead>
+  										<tbody>
+  											<tr>
+  												<td>5/21</td>
+  												<td>大阪太郎</td>
+  												<td>11:00</td>
+  												<td>18:00</td>
+  												<td>電話受付</td>
+  												<td><a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+  											</tr>
+  											<tr>
+  												<td>5/22</td>
+  												<td>大阪太郎</td>
+  												<td>11:00</td>
+  												<td>18:00</td>
+  												<td>電話受付</td>
+                          <td><a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+  											</tr>
+  											<tr>
+  												<td>5/24</td>
+  												<td>大阪太郎</td>
+  												<td>11:00</td>
+  												<td>18:00</td>
+  												<td>電話受付</td>
+                          <td><a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+  											</tr>
+  											<tr>
+  												<td>6/10</td>
+  												<td>大阪太郎</td>
+  												<td>11:00</td>
+  												<td>18:00</td>
+  												<td>電話受付</td>
+                          <td><a href="#" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+  											</tr>
+  										</tbody>
+  									</table>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+
+  				</div>
+  			</div>
+  		</div>
+
+  		<footer>
+  		{include footer.tpl}
+  		</footer>
+
+  		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  		<script src="https://code.jquery.com/jquery.js"></script>
+  		<!-- Include all compiled plugins (below), or include individual files as needed -->
+  		<script src="bootstrap/js/bootstrap.min.js"></script>
+  		<script src="js/custom.js"></script>
+  		<script> 
+  			function check(){
+	if(window.confirm('リセットしてもよろしいですか？')){ // 確認ダイアログを表示
+		return true; // 「OK」時はリセットを実行
+	}
+	else{ // 「キャンセル」時の処理
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+		return false; // リセットを中止
+	}
+}
+</script>
+</body>
+</html>

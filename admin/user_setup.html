@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    {include head.tpl}
+
+    
+</head>
+
+<body>
+		<!-- start: Header -->
+	<div class="navbar">
+    {include header.tpl}
+	</div>
+	<div id="under-header"></div>
+	<!-- start: Header -->
+	
+		<div class="container-fluid">
+		<div class="row-fluid">
+				
+			<!-- start: Main Menu -->
+			<div class="span2 main-menu-span">
+            {include menu.tpl}
+			</div><!--/span-->
+			<!-- end: Main Menu -->
+			
+			{include noscript.tpl}
+			
+			<div id="content" class="span10">
+			<!-- start: Content -->
+			
+
+			<div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="#">Home</a> <span class="divider">/</span>
+					</li>
+					<li>
+						<a href="#">{val title}</a>
+					</li>
+				</ul>
+			</div>
+			<!--{def message}-->
+					<div class="box-content alerts">
+						<div class="alert alert-info">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<strong>{val message}</strong>
+						</div>
+					</div>
+			<!--{/def}-->
+			<div class="row-fluid sortable">		
+				<div class="box span12">
+					<div class="box-content">
+					
+					
+						<form class="form-horizontal" action="./?act=user_setup" name="form1" id="form1" method="post">
+							<input type="hidden" name="mode" value="update">
+							<fieldset>
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">ログインID</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="login_id" name="login_id" type="text" value="{val login_id}">
+								</div>
+							  </div>
+							  <div class="control-group">
+								<label class="control-label" for="focusedInput">ログインPW</label>
+								<div class="controls">
+								  <input class="input-xlarge focused" id="login_pw" name="login_pw" type="text" value="{val login_pw}">
+								</div>
+							  </div>
+							  <div class="form-actions">
+								<button type="submit" class="btn btn-primary">更新</button>
+								<!--button class="btn">Cancel</button-->
+							  </div>
+							</fieldset>
+						  </form>
+					</div>
+				</div>
+			</div>
+			
+			
+
+			
+					<!-- end: Content -->
+			</div><!--/#content.span10-->
+				</div><!--/fluid-row-->
+
+		
+		<div class="clearfix"></div>
+		<hr>
+		
+		<footer>
+			{include footer.tpl}
+		</footer>
+				
+	</div><!--/.fluid-container-->
+
+	<!-- start: JavaScript-->
+		{include script.tpl}
+	<!-- end: JavaScript-->
+	
+</body>
+</html>

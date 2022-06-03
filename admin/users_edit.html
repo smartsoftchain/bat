@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	{include head.tpl}
+	<link rel="stylesheet" href="css/lightbox.css">
+<style type="text/css">
+<!--
+.textareas{
+	width:600px;
+	height:200px;
+}
+//-->
+</style>
+</head>
+
+<body>
+		<!-- start: Header -->
+	<div class="navbar">
+		<div class="navbar-inner">
+		{include header.tpl}
+		</div>
+	</div>
+	<div id="under-header"></div>
+	<!-- start: Header -->
+	
+		<div class="container-fluid">
+		<div class="row-fluid">
+				
+			<!-- start: Main Menu -->
+			<div class="span2 main-menu-span">
+				{include menu.tpl}
+			</div><!--/span-->
+			<!-- end: Main Menu -->
+			
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+			
+			<div id="content" class="span10">
+			<!-- start: Content -->
+			
+			<div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="#">Home</a> <span class="divider">/</span>
+					</li>
+					<li>
+						<a href="#">{val title}</a>
+					</li>
+				</ul>
+			</div>
+			
+
+			<!--{def message}-->
+					<div class="box-content alerts">
+						<div class="alert alert-info">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<strong>{val message}</strong>
+						</div>
+					</div>
+			<!--{/def}-->
+			
+			<div class="row-fluid sortable">
+				<div class="box span12">
+					<div class="box-header">
+					</div>
+					<div class="box-content">
+					<form action="./?act=users_edit" name="form1" method="post" id="form1" enctype="multipart/form-data">
+						<input type="hidden" name="mode" value="edit">
+						<table class="table table-bordered table-striped">
+							<tr>
+								<td style="width: 100px;">利用日</td>
+								<td><input class="input-xlarge focused" id="date" name="form[date]" type="text" value="{val list/date}"></td>
+							</tr>
+							<tr>
+								<td style="width: 100px;">ログインID</td>
+								<td><input class="input-xlarge focused" id="login_id" name="form[login_id]" type="text" value="{val list/login_id}"></td>
+							</tr>
+							<tr>
+								<td style="width: 200px;">ログインパスワード</td>
+								<td><input class="input-xlarge focused" id="login_pw" name="form[login_pw]" type="text" value="{val list/login_pw}"></td>
+							</tr>
+							<tr>
+								<td style="width: 200px;">名前</td>
+								<td><input class="input-xlarge focused" id="name" name="form[name]" type="text" value="{val list/name}"></td>
+							</tr>
+							<tr>
+								<td style="width: 200px;">時間From</td>
+								<td><input class="input-xlarge focused" id="from" name="form[from]" type="text" value="{val list/from}"></td>
+							</tr>
+							<tr>
+								<td style="width: 200px;">時間To</td>
+								<td><input class="input-xlarge focused" id="to" name="form[to]" type="text" value="{val list/to}"></td>
+							</tr>
+							<tr>
+								<td style="width: 200px;">メモ</td>
+								<td><input class="input-xlarge focused" id="memo" name="form[memo]" type="text" value="{val list/memo}"></td>
+							</tr>
+						</table>
+						 <div class="form-actions">
+								<button type="submit" class="btn btn-primary"> 登 録 </button>
+							  </div>
+					</form>
+                  </div>
+				</div><!--/span-->
+			</div><!--/row-->
+
+			<hr>
+			
+       
+					<!-- end: Content -->
+			</div><!--/#content.span10-->
+				</div><!--/fluid-row-->
+				
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Settings</h3>
+			</div>
+			<div class="modal-body">
+				<p>Here settings can be configured...</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save changes</a>
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+		<hr>
+		
+		<footer>
+			{include footer.tpl}
+		</footer>
+				
+	</div><!--/.fluid-container-->
+
+	<!-- start: JavaScript-->
+	{include script.tpl}
+	<script src="js/lightbox.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#send').click(function() {
+    	if(confirm("この情報で登録します。よろしいですか？")){
+    		$("#form1").submit();
+    	}else{
+    		return false;
+    	}
+    
+    });
+});
+</script>
+</body>
+</html>
